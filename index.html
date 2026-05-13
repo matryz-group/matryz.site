@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matryz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="inner">
+        <span class="logo">MATRYZ</span>
+        <nav>
+            <a href="#membros">Membros</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </div>
+</header>
+
+<section id="membros">
+    <h2>Membros</h2>
+    <div class="members-grid">
+
+        <div class="member-card">
+            <div class="avatar">JS</div>
+            <h3>João Silva</h3>
+            <div class="member-role">Frontend Developer</div>
+            <p class="member-bio">React, TypeScript e design de interfaces.</p>
+        </div>
+
+        <div class="member-card">
+            <div class="avatar">MS</div>
+            <h3>Maria Santos</h3>
+            <div class="member-role">Backend Developer</div>
+            <p class="member-bio">Node.js, APIs REST e bancos de dados.</p>
+        </div>
+
+        <div class="member-card">
+            <div class="avatar">PC</div>
+            <h3>Pedro Costa</h3>
+            <div class="member-role">DevOps</div>
+            <p class="member-bio">Docker, CI/CD e infraestrutura em nuvem.</p>
+        </div>
+
+        <div class="member-card">
+            <div class="avatar">AC</div>
+            <h3>Ana Carvalho</h3>
+            <div class="member-role">Gerente de Projetos</div>
+            <p class="member-bio">Coordenação ágil e comunicação com clientes.</p>
+        </div>
+
+    </div>
+</section>
+
+<hr class="divider">
+
+<section id="projetos">
+    <h2>Projetos</h2>
+    <div class="projects-grid">
+
+        <div class="project-card">
+            <h3>Nome do Projeto</h3>
+            <p>Breve descrição do que o projeto faz e o problema que resolve.</p>
+            <div class="tags">
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3>Nome do Projeto</h3>
+            <p>Breve descrição do que o projeto faz e o problema que resolve.</p>
+            <div class="tags">
+                <span class="tag">Vue.js</span>
+                <span class="tag">PostgreSQL</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3>Nome do Projeto</h3>
+            <p>Breve descrição do que o projeto faz e o problema que resolve.</p>
+            <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Docker</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<hr class="divider">
+
+<section id="contato">
+    <h2>Contato</h2>
+
+    <div class="contact-links">
+        <a class="contact-link" href="https://github.com/matryz" target="_blank">GitHub</a>
+        <a class="contact-link" href="mailto:contato@matryz.com">Email</a>
+    </div>
+
+    <form class="contact-form" id="contact-form">
+        <input type="text" name="nome" placeholder="Seu nome" required>
+        <input type="email" name="email" placeholder="Seu e-mail" required>
+        <textarea name="mensagem" placeholder="Sua mensagem..." required></textarea>
+        <button type="submit">Enviar</button>
+        <div class="form-success" id="form-success">Mensagem enviada! Em breve entraremos em contato.</div>
+    </form>
+</section>
+
+<footer>
+    &copy; 2025 Matryz
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
