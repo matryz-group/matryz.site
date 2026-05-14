@@ -1,10 +1,18 @@
+// smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+});
+
+// form (Formspree)
 const form = document.getElementById('contact-form');
 const success = document.getElementById('form-success');
 const submitBtn = form.querySelector('button[type="submit"]');
 
 form.addEventListener('submit', async function (e) {
     e.preventDefault();
-
     submitBtn.disabled = true;
     submitBtn.textContent = 'Enviando...';
 
@@ -26,6 +34,6 @@ form.addEventListener('submit', async function (e) {
         alert('Sem conexão. Tente novamente.');
     } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Enviar';
+        submitBtn.textContent = 'Enviar mensagem';
     }
 });
