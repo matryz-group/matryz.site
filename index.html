@@ -241,9 +241,22 @@
             VAMOS CONSTRUIR<br>
             ALGO <span class="cs-red">EXTRAORDINÁRIO.</span>
         </h2>
-        <div class="cs-contact-row fade-up">
-            <a href="mailto:matryz.group@gmail.com" class="cs-contact-email">matryz.group@gmail.com</a>
-            <a href="mailto:matryz.group@gmail.com" class="cs-btn-red">Iniciar Projeto →</a>
+        <div class="cs-contact-body fade-up">
+            <div class="cs-contact-info">
+                <a href="mailto:matryz.group@gmail.com" class="cs-contact-email">matryz.group@gmail.com</a>
+                <p class="cs-contact-note">Respondemos em até 24 horas. Sem enrolação.</p>
+            </div>
+            <form class="cs-form" id="cs-contact-form" action="https://formspree.io/f/mgvkovwd" method="POST">
+                <div class="cs-form-row">
+                    <input type="text"  name="nome"     placeholder="Seu nome"   required>
+                    <input type="email" name="email"    placeholder="Seu e-mail" required>
+                </div>
+                <textarea name="mensagem" placeholder="Conta sobre o projeto..." required></textarea>
+                <div class="cs-form-footer">
+                    <div class="cs-form-success" id="cs-form-success">Mensagem enviada. Em breve entramos em contato.</div>
+                    <button type="submit" class="cs-btn-red">Enviar mensagem →</button>
+                </div>
+            </form>
         </div>
     </div>
 </section>
@@ -274,6 +287,35 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    const form = document.getElementById('cs-contact-form');
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('button[type="submit"]');
+            const success = document.getElementById('cs-form-success');
+            btn.disabled = true;
+            btn.textContent = 'Enviando...';
+            try {
+                const res = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (res.ok) {
+                    form.reset();
+                    success.style.display = 'block';
+                    btn.textContent = 'Enviado ✓';
+                } else {
+                    btn.textContent = 'Erro — tente novamente';
+                    btn.disabled = false;
+                }
+            } catch {
+                btn.textContent = 'Erro — tente novamente';
+                btn.disabled = false;
+            }
+        });
+    }
 </script>
 
 </body>
